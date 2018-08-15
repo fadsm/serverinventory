@@ -8,12 +8,14 @@ import com.serverinventory.entities.Cluster;
 import com.serverinventory.entities.Server;
 import com.serverinventory.entities.Vcenter;
 import com.serverinventory.facade.Facade;
+import com.serverinventory.service.ServerService;
+import com.serverinventory.service.ServiceException;
 
 
 public class Testing {
 
 	@Test
-	public void attemptToAdd() {
+	public void attemptToAdd() throws ServiceException {
 		
 		Server s = new Server();
 		
@@ -29,9 +31,7 @@ public class Testing {
 		
 		c.setId(null);
 		c.setName("Next Cloud Camada 1");
-		
-				
-		
+								
 		Vcenter v = new Vcenter();
 		
 		v.setId(null);
@@ -52,10 +52,9 @@ public class Testing {
 		v.setClusters(new ArrayList<Cluster>());
 		v.getClusters().add(c);
 		
-		Facade fac = new Facade();
 		
-		fac.saveServer(s);
-		
+		//Instancia facade e chama o serverdao através dele
+		new ServerService().add(s);
 				
 	}
 

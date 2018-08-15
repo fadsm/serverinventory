@@ -1,15 +1,16 @@
 package com.serverinventory.service;
 
-import com.serverinventory.dao.ServerDao;
 import com.serverinventory.entities.Server;
+import com.serverinventory.facade.Facade;
 
 public class ServerService {
 	
-	public void add(Server server) {
+	public void add(Server server) throws ServiceException {
 		if (server.getName() == null) {
-			//error
+			throw new ServiceException("You cannot add a server without name. The name field is currently empty");
 		}
-		new ServerDao().add(server);
+				
+		new Facade().saveServer(server);
 	}
 
 }

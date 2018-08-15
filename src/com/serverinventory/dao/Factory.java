@@ -4,7 +4,7 @@ import com.serverinventory.entities.Cluster;
 import com.serverinventory.entities.Server;
 import com.serverinventory.entities.Vcenter;
 
-public class Facade {
+public class Factory {
 
 	
 	static public Dao<Server> getServerDaoInstace() {

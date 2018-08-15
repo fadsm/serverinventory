@@ -2,6 +2,7 @@ package com.serverinventory.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,10 +18,10 @@ public class Cluster {
 	Long id;
 	String name;
 	
-	@OneToMany(mappedBy="cluster")
+	@OneToMany(mappedBy="cluster", cascade = CascadeType.ALL)
 	private List<Server> servers;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	Vcenter vcenter;
 
 	public Long getId() {

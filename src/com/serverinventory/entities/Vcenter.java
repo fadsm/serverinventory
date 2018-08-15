@@ -2,6 +2,7 @@ package com.serverinventory.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class Vcenter {
 	String version;
 	
 	
-	@OneToMany(mappedBy="vcenter")
+	@OneToMany(mappedBy="vcenter", cascade = CascadeType.ALL)
 	private List<Cluster> clusters;
 
 

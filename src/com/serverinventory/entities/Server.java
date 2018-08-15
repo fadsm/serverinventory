@@ -1,5 +1,6 @@
 package com.serverinventory.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,8 @@ public class Server {
 	String operatingSystem;
 	String system;
 	String subSystem;
-	@ManyToOne
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	Cluster cluster;
 	
 	public Cluster getCluster() {

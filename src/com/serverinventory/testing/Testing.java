@@ -7,7 +7,6 @@ import org.junit.Test;
 import com.serverinventory.entities.Cluster;
 import com.serverinventory.entities.Server;
 import com.serverinventory.entities.Vcenter;
-import com.serverinventory.facade.Facade;
 import com.serverinventory.service.ServerService;
 import com.serverinventory.service.ServiceException;
 
@@ -20,23 +19,23 @@ public class Testing {
 		Server s = new Server();
 		
 		s.setID(null);
-		s.setName("mz-cw-ap-021");
-		s.setIp("10.215.215.10");
-		s.setOperatingSystem("Windows 2012 R2");
+		s.setName("im-cw-ws-666");
+		s.setIp("10.10.200.20");
+		s.setOperatingSystem("Windows Server 2019");
 		s.setSystem("Genesys");
-		s.setSubSystem("Genesys Mobile Services 2");
+		s.setSubSystem("SBC");
 		
 		
 		Cluster c = new Cluster();
 		
 		c.setId(null);
-		c.setName("Next Cloud Camada 1");
+		c.setName("Next Cloud Camada 6");
 								
 		Vcenter v = new Vcenter();
 		
 		v.setId(null);
-		v.setName("IM-VV-AP-118");
-		v.setVersion("10.215.12.12");
+		v.setName("IM-VV-AP-063");
+		v.setVersion("10.100.0.10");
 		
 		//adiciona vcenter ao cluster
 		c.setVcenter(v);
@@ -53,7 +52,7 @@ public class Testing {
 		v.getClusters().add(c);
 		
 		
-		//Instancia facade e chama o serverdao através dele
+		//Instancia facade e chama o serverdao atravï¿½s dele
 		new ServerService().add(s);
 				
 	}

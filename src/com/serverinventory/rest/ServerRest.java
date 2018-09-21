@@ -3,8 +3,10 @@ package com.serverinventory.rest;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -29,11 +31,30 @@ public class ServerRest {
 		}
 	}
 	
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void edit(Server server) {
+		try {
+			new ServerService().edit(server);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@DELETE
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void remove(Server server) {
+		try {
+			new ServerService().remove(server);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Server> list() {
-		
-		//falta adicionar o listar a classe de serviço
+
 		List<Server> servers = new ServerService().list();
 		return servers;
 	}

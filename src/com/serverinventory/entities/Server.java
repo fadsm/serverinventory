@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Server {
 	
@@ -19,6 +21,7 @@ public class Server {
 	String system;
 	String subSystem;
 	
+	@JsonBackReference
 	@ManyToOne(cascade = CascadeType.ALL)
 	Cluster cluster;
 	

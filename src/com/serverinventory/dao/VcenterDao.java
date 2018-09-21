@@ -3,6 +3,7 @@ package com.serverinventory.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import com.serverinventory.entities.Vcenter;
 
@@ -22,20 +23,28 @@ public class VcenterDao implements Dao<Vcenter>{
 
 	@Override
 	public void edit(Vcenter vcenter) {
-		// TODO Auto-generated method stub
+		
+		EntityManager em = Connection.getInstance().createEntityManager();		
+		em.getTransaction().begin();
+		em.merge(vcenter);
+		em.getTransaction().commit();
 		
 	}
 
 	@Override
 	public void remove(Vcenter vcenter) {
-		// TODO Auto-generated method stub
+		EntityManager em = Connection.getInstance().createEntityManager();		
+		em.getTransaction().begin();
+		em.remove(vcenter);
+		em.getTransaction().commit();
 		
 	}
 
 	@Override
 	public List<Vcenter> toList() {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = Connection.getInstance().createEntityManager();
+		Query q = em.createQuery("select v from Vcenter v");
+		return q.getResultList();
 	}
 
 }

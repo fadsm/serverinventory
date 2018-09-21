@@ -31,11 +31,15 @@
 			<version>3.6.5.Final</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.2.0.Final</version>
-			<scope>provided</scope>
-		</dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>4.2.0.Final</version>
+        </dependency>
+		<dependency>
+         		<groupId>io.swagger</groupId>
+         		<artifactId>swagger-jersey-jaxrs</artifactId>
+        		<version>1.5.0</version>	
+        </dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-nop</artifactId>
@@ -47,11 +51,6 @@
 			<artifactId>h2</artifactId>
 			<version>1.4.196</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.owlike</groupId>
@@ -73,5 +72,19 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
 		</dependency>
-	</dependencies>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>RELEASE</version>
+          <scope>compile</scope>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+	  <dependency>
+    	<groupId>javax.servlet</groupId>
+   		<artifactId>javax.servlet-api</artifactId>
+    	<version>4.0.0</version>
+    	<scope>provided</scope>
+	  </dependency>
+      
+  </dependencies>
 </project>

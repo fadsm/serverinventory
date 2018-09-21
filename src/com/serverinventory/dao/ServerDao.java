@@ -3,6 +3,8 @@ package com.serverinventory.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 import com.serverinventory.entities.Server;
 
 public class ServerDao implements Dao<Server>{
@@ -20,20 +22,27 @@ public class ServerDao implements Dao<Server>{
 
 	@Override
 	public void edit(Server server) {
-		// TODO Auto-generated method stub
+		EntityManager em = Connection.getInstance().createEntityManager();		
+		em.getTransaction().begin();
+		em.merge(server);
+		em.getTransaction().commit();
 		
 	}
 
 	@Override
 	public void remove(Server server) {
-		// TODO Auto-generated method stub
+		EntityManager em = Connection.getInstance().createEntityManager();		
+		em.getTransaction().begin();
+		em.remove(server);
+		em.getTransaction().commit();
 		
 	}
 
 	@Override
 	public List<Server> toList() {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = Connection.getInstance().createEntityManager();
+		Query q = em.createQuery("select s from Server s");
+		return q.getResultList();
 	}
 
 }

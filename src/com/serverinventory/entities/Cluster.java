@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Cluster {
 	
@@ -18,9 +21,11 @@ public class Cluster {
 	Long id;
 	String name;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy="cluster", cascade = CascadeType.ALL)
 	private List<Server> servers;
 
+	@JsonBackReference
 	@ManyToOne(cascade = CascadeType.ALL)
 	Vcenter vcenter;
 

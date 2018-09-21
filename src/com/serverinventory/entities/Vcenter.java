@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Vcenter {
 	
@@ -18,7 +21,7 @@ public class Vcenter {
 	String name;
 	String version;
 	
-	
+	@JsonManagedReference
 	@OneToMany(mappedBy="vcenter", cascade = CascadeType.ALL)
 	private List<Cluster> clusters;
 

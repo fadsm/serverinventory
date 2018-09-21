@@ -53,11 +53,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
 			<groupId>com.owlike</groupId>
 			<artifactId>genson</artifactId>
 			<version>0.99</version>
@@ -77,5 +72,19 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
 		</dependency>
-	</dependencies>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>RELEASE</version>
+          <scope>compile</scope>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+	  <dependency>
+    	<groupId>javax.servlet</groupId>
+   		<artifactId>javax.servlet-api</artifactId>
+    	<version>4.0.0</version>
+    	<scope>provided</scope>
+	  </dependency>
+      
+  </dependencies>
 </project>

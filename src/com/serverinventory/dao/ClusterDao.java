@@ -3,8 +3,10 @@ package com.serverinventory.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import com.serverinventory.entities.Cluster;
+import com.serverinventory.entities.Server;
 
 public class ClusterDao implements Dao<Cluster> {
 
@@ -22,20 +24,32 @@ public class ClusterDao implements Dao<Cluster> {
 
 	@Override
 	public void edit(Cluster cluster) {
-		// TODO Auto-generated method stub
-		
+		EntityManager em = Connection.getInstance().createEntityManager();		
+		em.getTransaction().begin();
+		em.merge(cluster);
+		em.getTransaction().commit();	
 	}
 
 	@Override
 	public void remove(Cluster cluster) {
-		// TODO Auto-generated method stub
+		EntityManager em = Connection.getInstance().createEntityManager();		
+		em.getTransaction().begin();
+		em.remove(cluster);
+		em.getTransaction().commit();
 		
 	}
 
-	@Override
 	public List<Cluster> toList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		EntityManager em = Connection.getInstance().createEntityManager();
+		Query q = em.createQuery("select c from Cluster c");
+		return q.getResultList();
+}
+	
+	public Cluster findCluster(int id) {
+		
+		EntityManager em = Connection.getInstance().createEntityManager();
+	    return em.find(Cluster.class, id);
+	    
+	  }
 
 }

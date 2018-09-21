@@ -15,9 +15,6 @@ public class Factory {
 		return new ClusterDao();
 	}
 	
-	static public Dao<Vcenter> getVcenterDaoInstance() {		
-		return new VcenterDao();
-		
-	}
+	static public Dao<Vcenter> getVcenterDaoInstance() { return new VcenterDao(); }
 	
 }
